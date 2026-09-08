@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Plateforme de signalement des déchets sauvages
 
 API REST en PHP/PDO/PostgreSQL, consommée par deux applications Cordova :
@@ -193,3 +194,7 @@ fetch('https://ton-domaine.com/api/reports/create.php', {
 - Passer les tokens en HTTPS uniquement (jamais en clair).
 - Ajouter une modération humaine des signalements avant validation définitive, pour limiter les faux signalements malgré la limite quotidienne.
 - Prévoir une purge/rotation des tokens expirés (`auth_tokens`) via une tâche cron.
+=======
+# e-waste-platform
+plateforme environnementale
+>>>>>>> 9550bd5d01c21195b839c05a98dcb6047084eaf5
