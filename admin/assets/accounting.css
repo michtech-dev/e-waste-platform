@@ -1,0 +1,200 @@
+/* =====================================================
+   Module Comptabilité — compléments au style admin
+   ===================================================== */
+
+/* ---- Sous-navigation comptabilité dans la sidebar ---- */
+.sidebar .nav-group-title {
+    padding: 14px 20px 4px 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7E948A;
+}
+.sidebar nav a.sub { padding-left: 34px; font-weight: 400; font-size: 13px; }
+
+/* ---- Toolbar au-dessus des tables ---- */
+.acc-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+.acc-toolbar h2 { font-size: 15px; margin: 0; }
+.acc-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---- Datatable générique ---- */
+.dt-wrap { width: 100%; }
+.dt-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.dt-controls input[type="search"] {
+    padding: 8px 11px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    min-width: 240px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+}
+.dt-controls select {
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-family: var(--font-body);
+    font-size: 13px;
+}
+.dt-info { color: var(--ink-soft); font-size: 12.5px; }
+table.datatable th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+table.datatable th.sortable::after { content: ' ⇅'; opacity: 0.35; }
+table.datatable th.sort-asc::after  { content: ' ↑'; opacity: 1; }
+table.datatable th.sort-desc::after { content: ' ↓'; opacity: 1; }
+table.datatable td.num, table.datatable th.num { text-align: right; font-family: var(--font-mono); }
+.dt-pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+.dt-pager .pages { display: flex; gap: 4px; flex-wrap: wrap; }
+.dt-pager button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 6px;
+    min-width: 30px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+}
+.dt-pager button.current { background: var(--ink); color: #fff; border-color: var(--ink); }
+.dt-pager button:hover:not(.current):not(:disabled) { background: #F0F0EC; }
+.dt-pager button:disabled { opacity: 0.45; cursor: default; }
+tfoot td {
+    font-weight: 700;
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+    font-family: var(--font-mono);
+}
+
+/* ---- Badges & pills comptables ---- */
+.pill.draft     { background: #EEEEE9; color: var(--ink-soft); }
+.pill.validated { background: #DCEEE1; color: var(--accent-dark); }
+.pill.open      { background: #DCEEE1; color: var(--accent-dark); }
+.pill.closed    { background: #F3DAD3; color: var(--brick); }
+.pill.client    { background: #DCE7F1; color: var(--blue); }
+.pill.supplier  { background: #F6E3D2; color: #8A5423; }
+.pill.both      { background: #E9DCF1; color: #6A3F94; }
+.pill.jtype     { background: #EFEDE3; color: #6B6350; }
+.badge-class {
+    display: inline-block;
+    min-width: 22px;
+    text-align: center;
+    background: var(--sidebar-active);
+    color: var(--accent);
+    border-radius: 6px;
+    padding: 2px 5px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ---- Montants ---- */
+.amount-debit  { color: var(--blue); }
+.amount-credit { color: var(--amber); }
+tr.unbalanced td { background: #FDF3EF !important; }
+
+/* ---- Formulaire de saisie d'écriture ---- */
+.entry-head-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+}
+.lines-editor { overflow-x: auto; }
+.lines-editor table { min-width: 980px; }
+.lines-editor td, .lines-editor th { padding: 7px 8px; vertical-align: middle; }
+.lines-editor input, .lines-editor select {
+    width: 100%;
+    padding: 7px 9px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 13px;
+}
+.lines-editor td.num-col input { text-align: right; font-family: var(--font-mono); }
+.lines-editor tr:nth-child(odd) td { background: #FCFCFA; }
+.account-cell { position: relative; }
+.account-filter {
+    margin-top: 4px;
+    width: 100% !important;
+    padding: 3px 7px !important;
+    font-size: 11.5px !important;
+    color: var(--ink-soft);
+}
+.line-remove {
+    background: none;
+    border: none;
+    color: var(--brick);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+.line-remove:hover { color: #96341F; }
+.balance-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+.balance-box {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    background: #FBFBF9;
+}
+.balance-box .lbl { font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+.balance-box .val { font-family: var(--font-mono); font-size: 19px; font-weight: 600; margin-top: 2px; }
+.balance-ok  { color: var(--accent-dark); }
+.balance-bad { color: var(--brick); }
+
+/* ---- États (grand livre / balance / journal) ---- */
+.report-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; color: var(--ink-soft); font-size: 13px; }
+.report-meta b { color: var(--ink); }
+tr.section-row td { background: #EFF3F0; font-weight: 700; }
+.sold-debit  { font-family: var(--font-mono); }
+.sold-credit { font-family: var(--font-mono); color: var(--amber); }
+
+/* ---- Impressions ---- */
+.print-only { display: none; }
+@media print {
+    @page { size: A4 landscape; margin: 12mm; }
+    body.printing { background: #fff; }
+    body.printing .sidebar,
+    body.printing .topbar,
+    body.printing .acc-toolbar,
+    body.printing .dt-controls,
+    body.printing .dt-pager,
+    body.printing .filters,
+    body.printing .no-print,
+    body.printing .alert { display: none !important; }
+    body.printing .app { display: block; }
+    body.printing .content { padding: 0; }
+    body.printing .card { border: none; padding: 0; margin: 0; box-shadow: none; }
+    body.printing .print-only { display: block; margin-bottom: 14px; }
+    body.printing .print-header { text-align: center; margin-bottom: 18px; }
+    body.printing .print-header h1 { font-size: 17px; margin: 0; }
+    body.printing .print-header p { margin: 3px 0; color: #444; font-size: 12px; }
+    body.printing table { font-size: 10.5px; }
+    body.printing th, body.printing td { padding: 4px 6px; }
+    body.printing thead { display: table-header-group; }
+    tr { page-break-inside: avoid; }
+    body.printing a[href]::after { content: ''; }
+}

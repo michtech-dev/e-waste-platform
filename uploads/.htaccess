@@ -1,0 +1,19 @@
+# Empêche l'exécution de scripts PHP dans ce dossier (uploads utilisateurs)
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+
+<IfModule mod_authz_core.c>
+    <FilesMatch "\.(php|phtml|php5|php7)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <FilesMatch "\.(php|phtml|php5|php7)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>
